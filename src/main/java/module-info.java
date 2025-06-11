@@ -9,4 +9,7 @@ module ru.NSTU.rgz {
     exports ru.NSTU.rgz.module;
     opens ru.NSTU.rgz.module to javafx.fxml;
     opens ru.NSTU.rgz.extra to javafx.base, javafx.fxml;
+    opens ru.NSTU.rgz.Client to javafx.fxml;
+    exports ru.NSTU.rgz.Client;
+
 }

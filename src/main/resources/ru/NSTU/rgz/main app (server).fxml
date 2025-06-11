@@ -14,19 +14,24 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.NSTU.rgz.Controller">
+<BorderPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.NSTU.rgz.Client.Client_controller">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                  <CheckMenuItem fx:id="authorCheck" mnemonicParsing="false" text="Author" />
-                  <CheckMenuItem fx:id="genreCheck" mnemonicParsing="false" text="Genre" />
+                        <CheckMenuItem fx:id="authorCheck" mnemonicParsing="false" text="Author" />
+                        <CheckMenuItem fx:id="genreCheck" mnemonicParsing="false" text="Genre" />
                     </items>
                 </Menu>
+            <Menu mnemonicParsing="false" text="Net">
+              <items>
+                <MenuItem fx:id="reconnectButton" mnemonicParsing="false" text="Recconect" />
+              </items>
+            </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem fx:id="reconnectButton" mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" text="About" />
                     </items>
                 </Menu>
             </menus>
@@ -39,8 +44,8 @@
                 <TableColumn fx:id="authorColumn" prefWidth="150.0" text="Author" />
                 <TableColumn fx:id="genreColumn" prefWidth="93.0" text="Genre" />
                 <TableColumn fx:id="statusColumn" prefWidth="124.0" text="Status" />
-            <TableColumn fx:id="userColumn" prefWidth="186.0" text="User" />
-            <TableColumn fx:id="extraColumn" prefWidth="115.0" text="Extra" />
+                <TableColumn fx:id="userColumn" prefWidth="186.0" text="User" />
+                <TableColumn fx:id="extraColumn" prefWidth="115.0" text="Extra" />
             </columns>
         </TableView>
     </center>
@@ -49,7 +54,7 @@
             <columnConstraints>
                 <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="395.0" minWidth="10.0" prefWidth="285.0" />
                 <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="505.0" minWidth="10.0" prefWidth="286.0" />
-            <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="505.0" minWidth="10.0" prefWidth="285.0" />
+                <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="505.0" minWidth="10.0" prefWidth="285.0" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -60,12 +65,12 @@
                 <TextField fx:id="titleTextField" prefHeight="25.0" prefWidth="240.0" promptText="Title" />
                 <TextField fx:id="authorTextField" prefHeight="25.0" prefWidth="240.0" promptText="Author" GridPane.rowIndex="1" />
                 <Button fx:id="addBookButton" mnemonicParsing="false" text="Add Book" GridPane.rowIndex="2" />
-            <TextField fx:id="genreTextField" prefHeight="25.0" prefWidth="245.0" promptText="Genre" GridPane.columnIndex="1" />
-            <ComboBox fx:id="statusComboBox" prefWidth="150.0" promptText="Status" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="editBookButton" disable="true" mnemonicParsing="false" text="Edit Book(s)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="userTextField" editable="false" prefHeight="25.0" prefWidth="240.0" promptText="User (if in use)" GridPane.columnIndex="2" />
-            <TextField fx:id="extraTextField" prefHeight="25.0" prefWidth="240.0" promptText="Extra information" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button fx:id="deleteBookButton" disable="true" mnemonicParsing="false" text="Delete Book" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <TextField fx:id="genreTextField" prefHeight="25.0" prefWidth="245.0" promptText="Genre" GridPane.columnIndex="1" />
+                <ComboBox fx:id="statusComboBox" prefWidth="150.0" promptText="Status" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Button fx:id="editBookButton" disable="true" mnemonicParsing="false" text="Edit Book(s)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="userTextField" editable="false" prefHeight="25.0" prefWidth="240.0" promptText="User (if in use)" GridPane.columnIndex="2" />
+                <TextField fx:id="extraTextField" prefHeight="25.0" prefWidth="240.0" promptText="Extra information" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Button fx:id="deleteBookButton" disable="true" mnemonicParsing="false" text="Delete Book" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             </children>
         </GridPane>
     </bottom>
