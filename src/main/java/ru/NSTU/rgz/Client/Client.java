@@ -15,8 +15,8 @@ public class Client extends javafx.application.Application {
         Client_controller controller = fxmlLoader.getController(); // Получаем контроллер
         stage.setTitle("library (Server)");
         stage.setScene(scene);
-        stage.setOnCloseRequest(event -> { // Перехватываем событие закрытия окна
-            controller.shutdown(); // Вызываем метод shutdown контроллера
+        stage.setOnCloseRequest(event -> {
+            controller.shutdown();
         });
         stage.show();
     }

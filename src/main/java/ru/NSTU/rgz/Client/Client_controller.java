@@ -143,7 +143,6 @@ public class Client_controller implements Initializable {
                 alert.setContentText("Please fill in author and title");
                 alert.showAndWait();
             }
-            //save();
             sendListToServer();
         });
 
@@ -203,7 +202,6 @@ public class Client_controller implements Initializable {
                 alert.setContentText("Please fill in author and title");
                 alert.showAndWait();
             }
-            //save();
         });
 
         deleteBookButton.setOnAction(event -> {// кнопка удаления
@@ -224,11 +222,10 @@ public class Client_controller implements Initializable {
                 alert.setContentText("No book is selected");
                 alert.showAndWait();
             }
-            //save();
             sendListToServer();
         });
 
-        reconnectButton.setOnAction(event -> {
+        reconnectButton.setOnAction(event -> {//попытаться переподключиться вручную
             connectToServer();
         });
 
@@ -252,8 +249,8 @@ public class Client_controller implements Initializable {
             }
             else {editBookButton.setDisable(true); deleteBookButton.setDisable(true);}
         });
+        //редактирование нескольких записей одновременно
         authorCheck.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            // Код, который будет выполнен при изменении состояния
             if (newValue) {
                 addBookButton.setDisable(true);
                 deleteBookButton.setDisable(true);
@@ -267,7 +264,6 @@ public class Client_controller implements Initializable {
             }
         });
         genreCheck.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            // Код, который будет выполнен при изменении состояния
             if (newValue) {
                 addBookButton.setDisable(true);
                 deleteBookButton.setDisable(true);
@@ -299,10 +295,8 @@ public class Client_controller implements Initializable {
                     try {
                         List<book> receivedList = (List<book>) inputStream.readObject();
                         Platform.runLater(() -> {
-                            System.out.println(bookData);
                             bookData.clear();
                             bookData.addAll(receivedList);
-                            System.out.println(bookData);
                         });
                     } catch (ClassNotFoundException e) {
                         System.err.println("Error: Received an object of an unknown class.");
@@ -319,7 +313,6 @@ public class Client_controller implements Initializable {
                 Platform.runLater(() -> {
                     Alert alert = new Alert(Alert.AlertType.ERROR, "Could not connect to server. Is the server running?", ButtonType.OK);
                     alert.showAndWait();
-                    Platform.exit();
                 });
             }
         }).start();
@@ -328,7 +321,7 @@ public class Client_controller implements Initializable {
     private void sendListToServer() {
         new Thread(() -> {
             try {
-                List<book> serializableList = new ArrayList<>(bookData); // Преобразуем в ArrayList
+                List<book> serializableList = new ArrayList<>(bookData);
                 outputStream.writeObject(serializableList);
                 outputStream.flush();
             } catch (IOException e) {
