@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import ru.NSTU.rgz.extra.book;
 import javafx.scene.control.ComboBox;
-import javafx.application.Application;
 
 import java.io.*;
 import java.net.Socket;
@@ -61,7 +60,6 @@ public class Client_controller implements Initializable {
     private Socket socket;
     private ObjectOutputStream outputStream;
     private ObjectInputStream inputStream;
-
 
     @FXML
     private ComboBox statusComboBox;
@@ -118,6 +116,7 @@ public class Client_controller implements Initializable {
                     userTextField.setVisible(false);
                     userTextField.setText("");
             }});
+
         addBookButton.setOnAction(event -> { // кнопка добавления
             String title = titleTextField.getText();
             String author = authorTextField.getText();

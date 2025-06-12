@@ -23,7 +23,7 @@ public class Server {
             load();
         }
         else {
-            System.out.println("generating data");
+            System.out.println("generating data"); //если файл отсутствует создастся предсгенерированный
             bookData.add(new book("Война и мир", "Лев Толстой", "Роман", "Available", "", ""));
             bookData.add(new book("Преступление и наказание", "Федор Достоевский", "Роман", "In use", "user123", ""));
             bookData.add(new book("Мастер и Маргарита", "Михаил Булгаков", "Роман", "Available", "", "Мистическая сатира"));
